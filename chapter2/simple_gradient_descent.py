@@ -4,7 +4,7 @@ def get_grad(x):
 
 #initial guess
 x = 10
-#learning reate
+#learning rete
 eta = 0.01
 
 num_iterations = 500
