@@ -1,0 +1,15 @@
+\documentclass[border=2pt]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{surface.jpg}};
+
+    \draw [->, ultra thick,yellow, dotted] (6.3,5.0) .. controls (5.3,5.0) and (5.5,2.6) .. (4.5,2.6);
+    \draw [->, ultra thick,yellow, dotted] (8.2,5.6) .. controls (8.6,5.6) .. (9.3,4.0);
+
+    \node at (6.3,4.7) {$P_1$};
+    \node at (8.2,5.3) {$P_2$};
+\end{tikzpicture}
+\end{document}
