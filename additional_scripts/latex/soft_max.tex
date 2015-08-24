@@ -7,20 +7,20 @@
 \begin{tikzpicture}
     \tikzset{
         component/.style = {rectangle, draw=magenta,  fill=magenta!10, thick, rounded corners},
-        neurone/.style = {circle, draw=magenta, fill=magenta!10, thick, radius=10},
+        neurone/.style = {circle, draw=magenta, fill=magenta!10, thick, radius=8, text width=3.5mm},
         line/.style = {draw=magenta, thin, -latex}
     }
 
-    \node[neurone](i_1){\footnotesize{X}};
-    \node[neurone](i_2)[below = 0.1cm of i_1]{\footnotesize{X}};
-    \node[neurone](i_3)[below = 0.1cm of i_2]{\footnotesize{X}};
-    \node[neurone](i_4)[below = 0.1cm of i_3]{\footnotesize{X}};
-    \node[neurone](i_5)[below = 0.1cm of i_4]{\footnotesize{X}};
+    \node[neurone](i_1){\footnotesize{$+1$}};
+    \node[neurone](i_2)[below = 0.1cm of i_1]{\footnotesize{$x_1$}};
+    \node[neurone](i_3)[below = 0.1cm of i_2]{\footnotesize{$.....$}};
+    \node[neurone](i_4)[below = 0.1cm of i_3]{\footnotesize{$.....$}};
+    \node[neurone](i_5)[below = 0.1cm of i_4]{\footnotesize{$x_m$}};
 
 
-    \node[neurone](o_1)[right = 2cm of i_2]{\footnotesize{O}};
-    \node[neurone](o_2)[right = 2cm of i_3]{\footnotesize{O}};
-    \node[neurone](o_3)[right = 2cm of i_4]{\footnotesize{O}};
+    \node[neurone](o_1)[right = 2cm of i_2]{\footnotesize{$o_1$}};
+    \node[neurone](o_2)[right = 2cm of i_3]{\footnotesize{$.....$}};
+    \node[neurone](o_3)[right = 2cm of i_4]{\footnotesize{$o_k$}};
 
     \path [line] (i_1) -- (o_1);
     \path [line] (i_1) -- (o_2);
@@ -41,7 +41,7 @@
     \path [line] (i_5) -- (o_1);
     \path [line] (i_5) -- (o_2);
     \path [line] (i_5) -- (o_3);
-    
+
 \end{tikzpicture}
 
 \end{document}
