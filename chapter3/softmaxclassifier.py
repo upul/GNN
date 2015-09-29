@@ -1,7 +1,6 @@
 import sys
 import numpy as np
 
-sys.path.append('../lib')
 from layers import SoftmaxLayer
 from datareader import load_mnist
 from constants import *
@@ -16,21 +15,22 @@ b = np.zeros((1, MNIST_NUM_OUTPUT))
 
 learning_rate = 0.1 # step size of the gradient descent algorithm
 reg_parameter = 0.01  # regularization strength
+softmax = SoftmaxLayer(W, b, reg_parameter, MNIST_NUM_OUTPUT)
 
-num_epochs = 1000
+num_iter = 1000
 BATCH_SIZE = 500
-for i in range(num_epochs):
+for i in range(num_iter):
 
     idx = np.random.choice(MNIST_NUM_TRAINING, BATCH_SIZE, replace=True)
     x_batch = x_train[idx, :]
     y_batch = y_train[idx]
-    softmax = SoftmaxLayer(W, b, reg_parameter)
     output_prob, loss = softmax.forward_pass(x_batch, y_batch)
     if i % 50 == 0:
         print('iteration: {:3d} loss: {:3e}'.format(i, loss))
     gradW, gradB = softmax.backward_pass(output_prob, x_batch, y_batch)
     W = W - learning_rate*gradW
     b = b - learning_rate*gradB
+    softmax.update_parameters(W, b)
 
 # prediction
 pred_prob = np.dot(x_train, W) + b
